@@ -1,0 +1,9 @@
+
+ids = `ipcs | grep reynolds_ez | cut -d " " -f2`
+
+for id in $ids
+do
+	ipcrm -m $id
+	ipcrm -s $id
+done
+

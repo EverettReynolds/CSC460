@@ -1,0 +1,10 @@
+
+
+files = `ls | grep file`
+
+
+for f in $files
+do
+	rm -rf $f
+done
+

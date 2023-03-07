@@ -1,0 +1,62 @@
+#!/bin/bash
+
+com= 'ex'
+args= 'ex'
+
+while(test "$com" != "nutsout")
+do
+
+	echo -n "Peanut> "
+	read com args
+
+	if(test $com == "nutsout") then
+		com= "nutsout"
+
+	elif(test $com == "showcase") then
+		file= $args
+		less $file
+	
+	elif( test $com == "nutcall") then
+		id= $args
+		for x in $id
+		do
+			user= `grep $x /etc/passwd | cut -d":" -f5 | cut -d"," -f1`
+			phone= `grep $x /etc/passwd | cut -d"," -f4 | cut -d":" -f1`
+			echo -e $user "\t" $phone
+		done
+	
+	elif(test $com == "nutstuff") then
+		direc= `ls`
+		for x in $direc
+		do
+			echo $x
+		done
+	
+	elif( test $com == "helpnuts") then
+		echo "nutsout" "showcase "filename" " "nutcall "userid" " "nutstuff" "helpnuts " "nutty " "peanutbutter filename " " spybear "args " " "nutlist"
+	
+	elif(test $com == "bignut") then
+		bash
+	
+	elif(test $com == "nutty") then
+		echo "Were you Really Lost or were you Just Found?"
+		sleep 5
+		echo "?"
+		sleep 5
+		echo "?"
+		sleep 5
+		echo "You have been Found."
+	
+	elif(test $com == "peanutbutter") then
+		file= $args
+		vim $file
+	
+	elif(test $com == "spybear") then
+		./spybear $args
+	else
+		echo "invalid command"
+	fi
+done
+
+	
+
